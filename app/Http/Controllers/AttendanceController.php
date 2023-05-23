@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Attendace;
+use App\Models\Attendance;
 use App\Models\Incidence;
 use App\Models\Project;
 use App\Models\User;
@@ -11,7 +11,7 @@ use App\Models\User;
 class AttendanceController extends Controller
 {
     public function index(){
-        $attendances = Attendace::all();
+        $attendances = Attendance::all();
         return view('pages.attendances.index', compact('attendances'));
     }
 
@@ -24,7 +24,7 @@ class AttendanceController extends Controller
 
     }
 
-    public function show(Attendace $attendance){
+    public function show(Attendance $attendance){
         return view('pages.attendances.show', compact('attendance'));
     }
 
@@ -40,13 +40,13 @@ class AttendanceController extends Controller
             'project_id'=> 'required'            
         ]);
         
-        $attendance = Attendace::create($request->all());
+        $attendance = Attendance::create($request->all());
 
         return redirect(route('attendances.index', $attendance));
 
     }
 
-    public function edit(Attendace $attendance){
+    public function edit(Attendance $attendance){
 
         $incidences = Incidence::all();
         $users = User::all();
@@ -56,7 +56,7 @@ class AttendanceController extends Controller
 
     }
 
-    public function update(Request $request, Attendace $attendance){
+    public function update(Request $request, Attendance $attendance){
         
         $request->validate([
             'date_in'=> 'required',
@@ -74,7 +74,7 @@ class AttendanceController extends Controller
 
     }
 
-    public function destroy(Attendace $attendance){
+    public function destroy(Attendance $attendance){
 
         $attendance->delete();
         return redirect(route('attendances.index'));

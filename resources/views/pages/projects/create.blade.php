@@ -31,7 +31,7 @@
                         <div class="form-group col-sm-12 col-md-6">
                             <label for="start">Date of start</label>
                             <input type="date" id="start" class="form-control" name="start"
-                                value="{{ old('start') }}" placeholder="Date of start" required>
+                                value="{{ old('start', date("Y-m-d")) }}" placeholder="Date of start" required>
                             @error('start')
                                 <p>{{ $message }}</p>
                             @enderror

@@ -33,7 +33,7 @@
                             <td>{{ $project->start }}</td>
                             <td>{{ $project->finish }}</td>
                             <td>{{ $project->status }}</td>
-                            <td>{{ $project->phase->name }}</td>
+                            <td>{{($project->phase_id == null) ? 'Deleted phase' : $project->phase->name }}</td>
                             <td>
                                 {{-- <a href="{{ route('projects.show', $project->id) }}"
                                 class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">

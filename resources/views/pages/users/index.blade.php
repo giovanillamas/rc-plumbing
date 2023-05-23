@@ -51,7 +51,7 @@
                                 {{ $user->state }} {{ $user->zip_code }}</td>
                             <td>{{ $user->ssn }}</td>
                             <td>{{ $user->status }}</td>
-                            <td>{{ $user->role->name }}</td>
+                            <td>{{($user->role_id == null) ? 'Deleted role' : $user->role->name}}</td>
                             <td>
                                 {{-- <a href="{{ route('users.show', $user->id) }}"
                                 class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
