@@ -20,9 +20,9 @@ return new class extends Migration
             $table->date('date_out');
             $table->time('time_out');
 
-            $table->unsignedBigInteger('incidence_id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('project_id');
+            $table->unsignedBigInteger('incidence_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('project_id')->nullable();
  
             $table->foreign('incidence_id')->references('id')->on('incidences');
             $table->foreign('user_id')->references('id')->on('users');

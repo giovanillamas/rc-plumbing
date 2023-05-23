@@ -25,8 +25,18 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
+        'phone',
         'email',
+        'street_number',
+        'street_name',
+        'city',
+        'state',
+        'zip_code',
+        'ssn',
         'password',
+        'status',
+        'role_id',
     ];
 
     /**
@@ -58,4 +68,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function role(){
+
+        return $this->belongsTo('App\Models\Role');
+
+    }
+
+    public function attendances(){
+
+        return $this->hasMany('App\Models\Attendance');
+
+    }
 }

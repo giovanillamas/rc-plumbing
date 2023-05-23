@@ -19,9 +19,9 @@ return new class extends Migration
             $table->date('start');
             $table->date('finish');
             $table->enum('status', ['active', 'inactive']);
-            $table->unsignedBigInteger('incidence_id')->nullable();
+            $table->unsignedBigInteger('phase_id')->nullable();
  
-            $table->foreign('incidence_id')->references('id')->on('incidences')->onDelete('set null');
+            $table->foreign('phase_id')->references('id')->on('phases')->onDelete('set null');
             $table->timestamps();
         });
     }
