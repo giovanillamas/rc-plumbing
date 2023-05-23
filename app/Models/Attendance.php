@@ -17,6 +17,7 @@ class Attendance extends Model
         'incidence_id',
         'user_id',
         'project_id',
+        'phase',
     ];
 
     public function incidence(){

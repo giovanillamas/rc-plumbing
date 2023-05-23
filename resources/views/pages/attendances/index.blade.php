@@ -25,6 +25,7 @@
                     <th>Incidence</th>
                     <th>User</th>
                     <th>Project</th>
+                    <th>Phase</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -38,6 +39,7 @@
                             <td>{{ $attendance->incidence->name }}</td>
                             <td>{{ $attendance->user->name . ' ' . $attendance->user->lastname }}</td>
                             <td>{{ $attendance->project->name }}</td>
+                            <td>{{ $attendance->phase }}</td>
                             <td>
                                 {{-- <a href="{{ route('attendances.show', $attendance->id) }}"
                                 class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Incidence;
+use App\Models\Phase;
 use App\Models\Project;
 use App\Models\User;
 
@@ -37,10 +38,21 @@ class AttendanceController extends Controller
             'time_out'=> 'required',
             'incidence_id'=> 'required',
             'user_id'=> 'required',
-            'project_id'=> 'required'            
+            'project_id'=> 'required',         
         ]);
-        
-        $attendance = Attendance::create($request->all());
+
+        $project = Project::find($request->project_id);
+
+        $attendance = Attendance::create([
+            'date_in' => $request->date_in,
+            'time_in' => $request->time_in,
+            'date_out' => $request->date_out,
+            'time_out' => $request->time_out,
+            'incidence_id' => $request->incidence_id,
+            'user_id' => $request->user_id,
+            'project_id' => $request->project_id,
+            'phase' => $project->phase->name,
+        ]);
 
         return redirect(route('attendances.index', $attendance));
 
